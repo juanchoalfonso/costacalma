@@ -1,1 +1,170 @@
+/* --- IMPORTACIÓN DE FUENTES ORIGINALES --- */
+@font-face {
+    font-family: 'Sunday';
+    src: url('../assets/fonts/sunday.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'True North';
+    src: url('../assets/fonts/truenorth.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Variables basadas en el Manual de Marca */
+:root {
+    --color-verde: #5E603B;
+    --color-marron-claro: #82623C;
+    --color-marron-oscuro: #5B400C;
+    --color-gris: #9A999E;
+    --color-negro: #000000;
+    --color-blanco: #FFFFFF;
+    
+    /* Tipografías originales aplicadas */
+    --font-titulos: 'Sunday', sans-serif; 
+    --font-textos: 'True North', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-textos);
+    color: var(--color-negro);
+    line-height: 1.6;
+    font-weight: 300; /* Hace que la Oswald se vea más elegante en textos largos */
+    font-size: 1.1rem;
+}
+
+/* Navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: var(--color-blanco);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    max-height: 60px; /* Esto controla el alto del logo, podés subirlo o bajarlo a tu gusto */
+    width: auto;
+    display: block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-verde);
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.btn-reservas {
+    background-color: var(--color-verde);
+    color: var(--color-blanco) !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-verde);
+}
+
+/* Secciones Generales */
+.section-container {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: var(--font-titulos);
+    color: var(--color-marron-oscuro);
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.bg-verde {
+    background-color: var(--color-verde);
+    max-width: 100%;
+}
+
+.text-white {
+    color: var(--color-blanco);
+}
+
+.content-text p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.servicios-lista {
+    color: var(--color-blanco);
+    margin-left: 20px;
+    font-size: 1.1rem;
+}
+
+.servicios-lista li {
+    margin-bottom: 10px;
+}
+
+.nota-importante {
+    color: var(--color-blanco);
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    .nav-links {
+        display: none; /* Se oculta en celu, lo abre el JS */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: var(--color-blanco);
+        text-align: center;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links a {
+        margin: 15px 0;
+    }
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* --- ESTILOS DEL HERO (BANNER PRINCIPAL) --- */
+.hero {
+    /* Acá apuntamos a la carpeta correcta con el nombre original de la foto */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../assets/images/00FC4CA6-6E44-4193-9E76-AD0581793C54.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 80vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-blanco);
+    padding: 0 20px;
+}

@@ -13,7 +13,7 @@
     font-style: normal;
 }
 
-/* Variables basadas en el Manual de Marca */
+/* --- VARIABLES BASADAS EN EL MANUAL --- */
 :root {
     --color-verde: #5E603B;
     --color-marron-claro: #82623C;
@@ -22,11 +22,11 @@
     --color-negro: #000000;
     --color-blanco: #FFFFFF;
     
-    /* Tipografías originales aplicadas */
     --font-titulos: 'Sunday', sans-serif; 
     --font-textos: 'True North', sans-serif;
 }
 
+/* --- ESTILOS BASE --- */
 * {
     margin: 0;
     padding: 0;
@@ -37,11 +37,11 @@ body {
     font-family: var(--font-textos);
     color: var(--color-negro);
     line-height: 1.6;
-    font-weight: 300; /* Hace que la Oswald se vea más elegante en textos largos */
+    font-weight: 300;
     font-size: 1.1rem;
 }
 
-/* Navegación */
+/* --- NAVEGACIÓN --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -55,7 +55,7 @@ body {
 }
 
 .logo img {
-    max-height: 60px; /* Esto controla el alto del logo, podés subirlo o bajarlo a tu gusto */
+    max-height: 60px;
     width: auto;
     display: block;
 }
@@ -72,6 +72,12 @@ body {
     color: var(--color-blanco) !important;
     padding: 10px 20px;
     border-radius: 5px;
+    font-family: var(--font-titulos);
+    transition: background-color 0.3s ease;
+}
+
+.btn-reservas:hover {
+    background-color: var(--color-marron-oscuro);
 }
 
 .menu-toggle {
@@ -83,7 +89,7 @@ body {
     color: var(--color-verde);
 }
 
-/* Secciones Generales */
+/* --- SECCIONES GENERALES --- */
 .section-container {
     padding: 60px 20px;
     max-width: 1200px;
@@ -94,7 +100,8 @@ body {
     font-family: var(--font-titulos);
     color: var(--color-marron-oscuro);
     margin-bottom: 30px;
-    font-size: 2.5rem;
+    font-size: 4rem;
+    text-transform: uppercase;
 }
 
 .bg-verde {
@@ -108,7 +115,11 @@ body {
 
 .content-text p {
     margin-bottom: 15px;
-    font-size: 1.1rem;
+    font-family: var(--font-textos);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    color: #444;
 }
 
 .servicios-lista {
@@ -127,13 +138,194 @@ body {
     font-weight: bold;
 }
 
-/* Responsivo para celulares */
+/* --- ESTILOS DEL HERO (BANNER PRINCIPAL) --- */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../assets/images/00FC4CA6-6E44-4193-9E76-AD0581793C54.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 80vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-blanco);
+    padding: 0 20px;
+}
+
+/* --- BOTÓN FLOTANTE WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366; 
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1); 
+    background-color: var(--color-verde); 
+}
+
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
+}
+
+/* --- SECCIÓN LLEGADA --- */
+.ubicacion-premium {
+    padding: 80px 20px;
+    background-color: #f9f9f7; 
+}
+
+.ubicacion-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.subtit-marca {
+    font-family: var(--font-textos);
+    color: var(--color-marron-claro);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+}
+
+.titulo-seccion {
+    font-family: var(--font-titulos);
+    font-size: 4rem; 
+    text-transform: uppercase;
+    color: var(--color-marron-oscuro);
+}
+
+.text-highlight {
+    color: var(--color-verde);
+}
+
+.separador-marca {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-verde);
+    margin: 20px auto;
+}
+
+.descripcion-header {
+    font-family: var(--font-textos);
+    font-size: 1.3rem;
+    color: #444;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+.grid-ubicacion {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.card-info {
+    background: white;
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 2px;
+    border-bottom: 4px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.card-info:hover {
+    border-bottom: 4px solid var(--color-verde);
+    transform: translateY(-10px);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background-color: #5e603b1a; 
+    color: var(--color-verde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+}
+
+.card-info h3 {
+    font-family: var(--font-titulos);
+    font-size: 2.2rem; 
+    margin-bottom: 15px;
+    color: var(--color-marron-oscuro);
+    text-transform: uppercase; 
+}
+
+.card-info p {
+    font-family: var(--font-textos);
+    font-size: 1.3rem; 
+    color: #444;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+/* --- MAPA Y OVERLAY SUTIL --- */
+.mapa-container {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.mapa-container iframe {
+    display: block;
+}
+
+.mapa-overlay-sutil {
+    position: absolute;
+    bottom: 15px;
+    right: 15px; 
+    z-index: 10;
+}
+
+.btn-gps-compacto {
+    background: var(--color-verde);
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-family: var(--font-textos); 
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.btn-gps-compacto:hover {
+    background: var(--color-marron-oscuro);
+    transform: scale(1.05);
+}
+
+/* --- RESPONSIVO PARA CELULARES --- */
 @media (max-width: 768px) {
     .navbar {
         padding: 15px 20px;
     }
     .nav-links {
-        display: none; /* Se oculta en celu, lo abre el JS */
+        display: none; 
         flex-direction: column;
         width: 100%;
         position: absolute;
@@ -151,20 +343,10 @@ body {
     .menu-toggle {
         display: block;
     }
-}
-
-/* --- ESTILOS DEL HERO (BANNER PRINCIPAL) --- */
-.hero {
-    /* Acá apuntamos a la carpeta correcta con el nombre original de la foto */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../assets/images/00FC4CA6-6E44-4193-9E76-AD0581793C54.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 80vh; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--color-blanco);
-    padding: 0 20px;
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
 }

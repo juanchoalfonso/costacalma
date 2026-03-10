@@ -340,9 +340,16 @@ body {
 }
 
 .complejo-fila {
+    background-color: #f4f9f4; /* Verde suave orgánico */
+    padding: 40px;
+    border-radius: 24px;
+    margin-bottom: 50px; /* Separación entre cards */
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 60px;
+    border: 1px solid #e8f2e8; /* Borde sutil para definir el límite */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); /* Sombra muy leve para dar volumen */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .complejo-fila.invertida {
@@ -422,6 +429,8 @@ body {
         aspect-ratio: 16/9;
     }
 }
+
+
 
 /* --- SECCIÓN SERVICIOS (BENTO GRID) --- */
 .seccion-servicios {
@@ -545,12 +554,13 @@ body {
 
 /* --- SECCIÓN REVIEWS / POR QUÉ ELEGIRNOS --- */
 .seccion-reviews {
-    background-image: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)), url('../assets/images/IMG_1853.jpg');
-    background-size: cover;
-    background-position: center center;
+    /* Cambiamos la cocina por la cabaña de noche */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images_inuse/cabaña_noche.jpg');
     background-attachment: fixed;
-    padding: 100px 20px;
-    color: var(--color-blanco);
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    color: white;
 }
 
 .reviews-content {

@@ -114,6 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowRight') navigate(1);
     });
 
+    // Touch swipe
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
+    }, { passive: true });
+
 // 5. Sección activa en navegación
     const sections = document.querySelectorAll('section[id]');
     const navItems = document.querySelectorAll('.nav-links a.nav-item[href^="#"]');
@@ -149,3 +157,28 @@ document.addEventListener('DOMContentLoaded', () => {
             verMasBtn.textContent = galeriaExpanded ? 'VER MENOS' : 'VER MÁS FOTOS';
         });
     }
+
+// 8. FAQ Accordion
+    document.querySelectorAll('.faq-pregunta').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(el => {
+                el.classList.remove('open');
+                el.querySelector('.faq-pregunta').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+// 7. Preloader
+    const preloader = document.getElementById('preloader');
+
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 1500);
+    });

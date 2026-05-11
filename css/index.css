@@ -1,3 +1,70 @@
+/* --- PRELOADER --- */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background-color: #141414;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    animation: preloader-fadein 0.5s ease forwards;
+}
+
+@keyframes preloader-fadein {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.preloader-logo {
+    width: 180px;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+}
+
+.preloader-tagline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.45);
+    margin: 0;
+}
+
+.preloader-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255,255,255,0.08);
+}
+
+.preloader-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--color-verde);
+    animation: preloader-progress 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes preloader-progress {
+    0%   { width: 0%; }
+    60%  { width: 75%; }
+    100% { width: 100%; }
+}
+
 /* --- IMPORTACIÓN DE FUENTES ORIGINALES --- */
 @font-face {
     font-family: 'Sunday';
@@ -442,6 +509,73 @@ body {
         height: 50px;
         bottom: 20px;
         right: 20px;
+    }
+}
+
+/* --- TRUST STRIP --- */
+.trust-strip {
+    background-color: #1c1c1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 30px;
+    color: white;
+    flex: 1;
+    justify-content: center;
+    max-width: 280px;
+}
+
+.trust-item svg {
+    color: #a8b060;
+    flex-shrink: 0;
+}
+
+.trust-item strong {
+    display: block;
+    font-family: var(--font-titulos);
+    font-size: 1rem;
+    color: rgba(255,255,255,0.92);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.trust-item span {
+    font-family: var(--font-textos);
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.trust-sep {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,0.1);
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .trust-strip {
+        flex-wrap: wrap;
+        padding: 18px 15px;
+        gap: 18px 0;
+    }
+    .trust-item {
+        flex: 0 0 50%;
+        padding: 0 15px;
+        max-width: none;
+        justify-content: flex-start;
+    }
+    .trust-sep {
+        display: none;
     }
 }
 
@@ -1200,6 +1334,97 @@ body {
     }
 }
 
+/* --- FAQ --- */
+.seccion-faq {
+    padding: 80px 20px;
+    background-color: #f9f9f7;
+    border-top: 1px solid #eee;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-lista {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e8e8e4;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item.open {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+}
+
+.faq-pregunta {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-textos);
+    font-size: 1.1rem;
+    color: var(--color-marron-oscuro);
+    text-align: left;
+    gap: 16px;
+    transition: color 0.2s;
+}
+
+.faq-pregunta:hover {
+    color: var(--color-verde);
+}
+
+.faq-icon {
+    flex-shrink: 0;
+    color: var(--color-verde);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-respuesta {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 24px;
+}
+
+.faq-item.open .faq-respuesta {
+    max-height: 300px;
+    padding: 0 24px 20px;
+}
+
+.faq-respuesta p {
+    font-family: var(--font-textos);
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+    border-top: 1px solid #f0f0ec;
+    padding-top: 16px;
+}
+
+@media (max-width: 768px) {
+    .seccion-faq { padding: 50px 15px; }
+    .faq-pregunta { font-size: 1rem; padding: 16px 18px; }
+    .faq-respuesta { padding: 0 18px; }
+    .faq-item.open .faq-respuesta { padding: 0 18px 16px; }
+}
+
 /* --- FOOTER ESTILO ATLETIC --- */
 .footer-atletic {
     background-color: #0a0a0a;
@@ -1650,9 +1875,8 @@ body {
 }
 
 .galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    columns: 3;
+    column-gap: 10px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -1662,18 +1886,14 @@ body {
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
-    aspect-ratio: 4/3;
+    break-inside: avoid;
+    margin-bottom: 10px;
     background-color: #222;
-}
-
-.galeria-item.galeria-wide {
-    grid-column: span 2;
 }
 
 .galeria-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
     transition: transform 0.5s ease;
 }
@@ -1726,11 +1946,11 @@ body {
 
 @media (max-width: 768px) {
     .galeria-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+        columns: 2;
+        column-gap: 6px;
     }
-    .galeria-item.galeria-wide {
-        grid-column: span 2;
+    .galeria-item {
+        margin-bottom: 6px;
     }
     .galeria-extra {
         display: none;
@@ -1745,13 +1965,11 @@ body {
 
 @media (max-width: 480px) {
     .galeria-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 3px;
+        columns: 2;
+        column-gap: 4px;
     }
-    .galeria-item,
-    .galeria-item.galeria-wide {
-        grid-column: span 1;
-        aspect-ratio: 1/1;
+    .galeria-item {
+        margin-bottom: 4px;
     }
 }
 

@@ -1946,11 +1946,19 @@ body {
 
 @media (max-width: 768px) {
     .galeria-grid {
-        columns: 2;
-        column-gap: 6px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        columns: unset;
     }
     .galeria-item {
-        margin-bottom: 6px;
+        aspect-ratio: 4/3;
+        break-inside: unset;
+        margin-bottom: 0;
+    }
+    .galeria-item img {
+        height: 100%;
+        object-fit: cover;
     }
     .galeria-extra {
         display: none;
@@ -1960,16 +1968,6 @@ body {
     }
     .galeria-ver-mas-wrap {
         display: flex;
-    }
-}
-
-@media (max-width: 480px) {
-    .galeria-grid {
-        columns: 2;
-        column-gap: 4px;
-    }
-    .galeria-item {
-        margin-bottom: 4px;
     }
 }
 

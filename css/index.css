@@ -4,6 +4,7 @@
     src: url('../assets/fonts/sunday.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -11,6 +12,7 @@
     src: url('../assets/fonts/truenorth.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 /* --- VARIABLES BASADAS EN EL MANUAL --- */
@@ -266,12 +268,95 @@ body {
     padding: 0 20px;
 }
 
+/* Mobile: imagen respira arriba, texto anclado abajo */
 @media (max-width: 768px) {
     .hero {
-        /* En el celu la centramos perfecto para ver las cabañas */
-        background-position: center center;
-        /* Sacamos el fixed en celular para mejor rendimiento */
-        background-attachment: scroll; 
+        background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.05) 100%), url('../assets/images_inuse/aerea.jpg');
+        background-position: center 35%;
+        background-attachment: scroll;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding: 0 0 45px;
+        height: 90vh;
+    }
+}
+
+.hero-content {
+    text-align: left;
+    padding: 0 25px;
+    max-width: 100%;
+}
+
+@media (min-width: 769px) {
+    .hero-content {
+        text-align: center;
+        padding: 0 20px;
+    }
+}
+
+.hero-content h1 {
+    font-family: var(--font-textos);
+    font-size: 5.5rem;
+    color: var(--color-blanco);
+    margin-bottom: 15px;
+    letter-spacing: 5px;
+    text-shadow: 1px 2px 8px rgba(0,0,0,0.4);
+    line-height: 1.05;
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.4rem;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+    }
+}
+
+.hero-content p {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .hero-content p {
+        font-size: 1rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 25px;
+    }
+}
+
+.hero-cta {
+    display: inline-block;
+    background-color: var(--color-verde);
+    color: var(--color-blanco);
+    padding: 16px 45px;
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.hero-cta:hover {
+    background-color: var(--color-marron-oscuro);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+@media (max-width: 768px) {
+    .hero-cta {
+        padding: 13px 30px;
+        font-size: 1.1rem;
+        letter-spacing: 2px;
     }
 }
 

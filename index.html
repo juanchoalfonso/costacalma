@@ -3,13 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Costa Calma - Cabañas junto al río</title>
+    <title>Costa Calma - Cabañas junto al río | Villa Paranacito, Entre Ríos</title>
+    <meta name="description" content="Cabañas de 40m² junto al río en Villa Paranacito, Entre Ríos. A solo 2 horas de CABA. Pileta, quincho, muelle y deck con vista al río. Reservas por WhatsApp.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://costacalmaok.com.ar/">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    
+
+    <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://costacalmaok.com.ar/">
+    <meta property="og:title" content="Costa Calma - Cabañas junto al río | Villa Paranacito">
+    <meta property="og:description" content="Cabañas de 40m² junto al río en Villa Paranacito, Entre Ríos. A solo 2 horas de CABA. Pileta, quincho, muelle y deck con vista al río.">
+    <meta property="og:image" content="https://costacalmaok.com.ar/assets/images_inuse/hero1.jpg">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:site_name" content="Costa Calma Cabañas">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Costa Calma - Cabañas junto al río | Villa Paranacito">
+    <meta name="twitter:description" content="Cabañas de 40m² junto al río en Villa Paranacito, Entre Ríos. A solo 2 horas de CABA.">
+    <meta name="twitter:image" content="https://costacalmaok.com.ar/assets/images_inuse/hero1.jpg">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVH0RNGJLG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GVH0RNGJLG');
+    </script>
+
+    <!-- Structured Data (Google: negocio local) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LodgingBusiness",
+        "name": "Costa Calma Cabañas",
+        "url": "https://costacalmaok.com.ar",
+        "telephone": "+5492323301372",
+        "email": "info@costacalma.com.ar",
+        "image": "https://costacalmaok.com.ar/assets/images_inuse/hero1.jpg",
+        "description": "Cabañas de 40m² junto al río en Villa Paranacito, Entre Ríos. Pileta, quincho, muelle y deck con vista al río.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Villa Paranacito",
+            "addressRegion": "Entre Ríos",
+            "addressCountry": "AR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -33.717,
+            "longitude": -59.033
+        },
+        "priceRange": "$$",
+        "sameAs": [
+            "https://www.instagram.com/costacalmaok/",
+            "https://www.facebook.com/profile.php?id=61553232885927"
+        ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -34,8 +91,8 @@
             </button>
             <a href="#cabanas" class="nav-item">EL COMPLEJO</a>
             <a href="#servicios" class="nav-item">SERVICIOS</a>
-            <a href="#ubicacion" class="nav-item">UBICACION</a>
-            <a href="https://wa.me/5492323301372?text=Hola!%20Me%20gustaría%20consultar%20disponibilidad%20para%20realizar%20una%20reserva%20en%20Costa%20Calma" class="btn-reservas" target="_blank">RESERVAS</a>
+            <a href="#ubicacion" class="nav-item">UBICACIÓN</a>
+            <a href="https://wa.me/5492323301372?text=Hola!%20Me%20gustaría%20consultar%20disponibilidad%20para%20realizar%20una%20reserva%20en%20Costa%20Calma" class="btn-reservas" target="_blank" rel="noopener noreferrer">RESERVAS</a>
         </nav>
     </header>
 
@@ -44,8 +101,9 @@
     <!-- ********************************** HERO ********************************** -->
     <section class="hero">
         <div class="hero-content">
-            <h2>CABAÑAS JUNTO AL RÍO</h2>
+            <h1>CABAÑAS JUNTO AL RÍO</h1>
             <p>Disfrutá de la naturaleza en Villa Paranacito, Entre Ríos.</p>
+            <a href="https://wa.me/5492323301372?text=Hola!%20Me%20gustaría%20consultar%20disponibilidad%20para%20realizar%20una%20reserva%20en%20Costa%20Calma" class="hero-cta" target="_blank" rel="noopener noreferrer">RESERVAR AHORA</a>
         </div>
     </section>
 
@@ -74,7 +132,7 @@
                         </ul>
                     </div>
                     <div class="complejo-imagen">
-                        <img src="assets/images_inuse/IMG_6819.jpg" alt="Dormitorio cabaña">
+                        <img src="assets/images_inuse/IMG_6819.jpg" alt="Dormitorio cabaña" loading="lazy">
                     </div>
                 </div>
 
@@ -88,7 +146,7 @@
                         </ul>
                     </div>
                     <div class="complejo-imagen">
-                        <img src="assets/images_inuse/IMG_6796.jpg" alt="Living">
+                        <img src="assets/images_inuse/IMG_6796.jpg" alt="Living" loading="lazy">
                     </div>
                 </div>
 
@@ -102,7 +160,7 @@
                         </ul>
                     </div>
                     <div class="complejo-imagen">
-                        <img src="assets/images_inuse/IMG_6803.jpg" alt="Baño de la cabaña">
+                        <img src="assets/images_inuse/IMG_6803.jpg" alt="Baño de la cabaña" loading="lazy">
                     </div>
                 </div>
 
@@ -116,7 +174,7 @@
                         </ul>
                     </div>
                     <div class="complejo-imagen">
-                        <img src="assets/images_inuse/cabaña_noche.jpg" alt="Iluminación cálida nocturna de las cabañas">
+                        <img src="assets/images_inuse/cabaña_noche.jpg" alt="Iluminación cálida nocturna de las cabañas" loading="lazy">
                     </div>
                 </div>
 
@@ -130,7 +188,7 @@
                         </ul>
                     </div>
                     <div class="complejo-imagen">
-                        <img src="assets/images_inuse/IMG_6842.jpg" alt="Patio y Parrilla privada">
+                        <img src="assets/images_inuse/IMG_6842.jpg" alt="Patio y Parrilla privada" loading="lazy">
                     </div>
                 </div>
 
@@ -144,7 +202,7 @@
                         </ul>
                     </div>
                     <div class="complejo-imagen">
-                        <img src="assets/images_inuse/WhatsApp Image 2026-02-25 at 15.28.39.jpeg" alt="Deck con vista al río">
+                        <img src="assets/images_inuse/WhatsApp Image 2026-02-25 at 15.28.39.jpeg" alt="Deck con vista al río" loading="lazy">
                     </div>
                 </div>
 
@@ -158,7 +216,7 @@
                         </ul>
                     </div>
                     <div class="complejo-imagen">
-                        <img src="assets/images_inuse/IMG_2030.jpg" alt="Cocina equipada">
+                        <img src="assets/images_inuse/IMG_2030.jpg" alt="Cocina equipada" loading="lazy">
                     </div>
                 </div>
 
@@ -172,7 +230,7 @@
                         </ul>
                     </div>
                     <div class="complejo-imagen">
-                        <img src="assets/images_inuse/hero1.jpg" alt="Vista cálida de las cabañas Costa Calma desde el río">
+                        <img src="assets/images_inuse/hero1.jpg" alt="Vista cálida de las cabañas Costa Calma desde el río" loading="lazy">
                     </div>
                 </div>
 
@@ -195,7 +253,7 @@
             <div class="bento-grid">
                 
                 <div class="bento-item bento-large reveal">
-                    <img src="assets/images_inuse/WhatsApp Image 2026-02-25 at 15.28.45 (1).jpeg" alt="Pileta" class="bento-media">
+                    <img src="assets/images_inuse/WhatsApp Image 2026-02-25 at 15.28.45 (1).jpeg" alt="Pileta" class="bento-media" loading="lazy">
                     <div class="bento-overlay">
                         <h3>PILETA</h3>
                         <p>Solarium con vista panorámica y sector de relax.</p>
@@ -203,7 +261,7 @@
                 </div>
 
                 <div class="bento-item bento-tall reveal">
-                    <img src="assets/images_inuse/IMG_1573.jpg" alt="Fogonero Grande" class="bento-media">
+                    <img src="assets/images_inuse/IMG_1573.jpg" alt="Fogonero Grande" class="bento-media" loading="lazy">
                     <div class="bento-overlay">
                         <h3>FOGONERO GRANDE</h3>
                         <p>Noches mágicas de fuego y estrellas junto al río.</p>
@@ -211,7 +269,7 @@
                 </div>
 
                 <div class="bento-item reveal">
-                    <img src="assets/images_inuse/WhatsApp Image 2026-02-25 at 15.28.40.jpeg" alt="El Quincho" class="bento-media">
+                    <img src="assets/images_inuse/WhatsApp Image 2026-02-25 at 15.28.40.jpeg" alt="El Quincho" class="bento-media" loading="lazy">
                     <div class="bento-overlay">
                         <h3>EL QUINCHO</h3>
                         <p>Parrilla techada, mesada amplia y espacio ideal para compartir asados en familia.</p>
@@ -240,7 +298,7 @@
                 </div>
 
                 <div class="bento-item bento-wide reveal">
-                    <img src="assets/images_inuse/WhatsApp Image 2026-02-25 at 15.28.45.jpeg" alt="Parque y Juegos" class="bento-media">
+                    <img src="assets/images_inuse/WhatsApp Image 2026-02-25 at 15.28.45.jpeg" alt="Parque y Juegos" class="bento-media" loading="lazy">
                     <div class="bento-overlay">
                         <h3>PARQUE Y JUEGOS</h3>
                         <p>Amplio espacio verde con mangrullo, cama elástica, metegol y ping pong para toda la familia.</p>
@@ -277,7 +335,7 @@
                         </div>
                     </div>
                     <span class="platform">Basado en reseñas reales de Google</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Costa+Calma+Cabañas+Villa+Paranacito" target="_blank" class="btn-ver-resenas">Ver en Google Maps</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Costa+Calma+Cabañas+Villa+Paranacito" target="_blank" rel="noopener noreferrer" class="btn-ver-resenas">Ver en Google Maps</a>
                 </div>
 
                 <div class="reviews-grid-cards">
@@ -402,7 +460,7 @@
                 </iframe>
                 
                 <div class="mapa-overlay-sutil">
-                    <a href="https://maps.google.com/maps?daddr=Costa+Calma+Cabañas,+Entre+Ríos" target="_blank" class="btn-gps-compacto">
+                    <a href="https://maps.google.com/maps?daddr=Costa+Calma+Cabañas,+Entre+Ríos" target="_blank" rel="noopener noreferrer" class="btn-gps-compacto">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
                         INICIAR GPS
                     </a>
@@ -447,9 +505,9 @@
 
 
     <!-- ********************************** FOOTER ********************************** -->
-    <a href="https://wa.me/5492323301372?text=Hola!%20Me%20gustaría%20recibir%20más%20información%20sobre%20las%20cabañas%20Costa%20Calma" 
-       class="whatsapp-float" 
-       target="_blank">
+    <a href="https://wa.me/5492323301372?text=Hola!%20Me%20gustaría%20recibir%20más%20información%20sobre%20las%20cabañas%20Costa%20Calma"
+       class="whatsapp-float"
+       target="_blank" rel="noopener noreferrer">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
 
@@ -484,10 +542,10 @@
                 <div class="footer-col">
                     <h4>Seguinos</h4>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/costacalmaok/" target="_blank" aria-label="Instagram">
+                        <a href="https://www.instagram.com/costacalmaok/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                         </a>
-                        <a href="https://www.facebook.com/profile.php?id=61553232885927" target="_blank" aria-label="Facebook">
+                        <a href="https://www.facebook.com/profile.php?id=61553232885927" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                         </a>
                     </div>

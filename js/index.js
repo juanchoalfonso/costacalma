@@ -34,6 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Cerrar el menú al scrollear
+    window.addEventListener('scroll', () => {
+        if (navLinks.classList.contains('active')) {
+            toggleMenu();
+        }
+    }, { passive: true });
 });
 
 // 3. Botón Scroll to Top

@@ -63,9 +63,64 @@
     }
     </script>
 
+    <!-- Structured Data (Google: preguntas frecuentes) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Cuántas personas entran por cabaña?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Cada cabaña tiene capacidad para hasta 4 personas. Contamos con cama matrimonial y dos camas individuales, más baño completo y cocina equipada."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Se puede ir en invierno?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. El complejo está abierto todo el año. El invierno tiene su magia propia: atardeceres únicos, niebla sobre el río y noches de fogón. Las cabañas tienen calefacción."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cómo se llega? ¿Se necesita auto?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Se llega por autopista RN12, luego ruta provincial RP46 hasta el pueblo de Villa Paranacito. Desde ahí cruzás en balsa (5 min sin bajar del auto) y son 6 km de ripio en perfecto estado. La balsa funciona 24 hs (salvo jueves de 14 a 18 hs por mantenimiento)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Hay que dejar seña para reservar?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Para confirmar la reserva se abona una seña. El saldo total se paga al ingresar. Consultanos por WhatsApp para conocer los montos y disponibilidad."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Se puede llevar mascotas?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "¡Por supuesto! Somos pet friendly. Tus mascotas pueden disfrutar del parque, el río y el fogonero junto a vos."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#5E603B">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Precarga de la imagen del hero (mejora el LCP) -->
+    <link rel="preload" as="image" href="assets/images_inuse/aerea.jpg" media="(min-width: 769px)">
 
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -364,7 +419,7 @@
             <!-- Reseñas Google integradas -->
             <div class="reviews-ubicacion">
                 <div class="reviews-score-row reveal">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="g-logo-ubicacion">
+                    <svg class="g-logo-ubicacion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Google"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
                     <div style="display:flex;flex-direction:column;align-items:flex-start;gap:4px;">
                         <span class="score-ubicacion">4.8</span>
                         <div class="stars-row">
@@ -388,7 +443,7 @@
                                     <span class="review-date">Hace 2 semanas</span>
                                 </div>
                             </div>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="g-logo-card">
+                            <svg class="g-logo-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Google"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
                         </div>
                         <div class="review-stars">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -408,7 +463,7 @@
                                     <span class="review-date">Hace 1 mes</span>
                                 </div>
                             </div>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="g-logo-card">
+                            <svg class="g-logo-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Google"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
                         </div>
                         <div class="review-stars">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -428,7 +483,7 @@
                                     <span class="review-date">Hace 3 meses</span>
                                 </div>
                             </div>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="g-logo-card">
+                            <svg class="g-logo-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Google"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
                         </div>
                         <div class="review-stars">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -710,7 +765,7 @@
 
             <div class="reservar-cta reveal">
                 <a href="https://wa.me/5492323301372?text=Hola!%20Me%20gustaría%20consultar%20disponibilidad%20para%20realizar%20una%20reserva%20en%20Costa%20Calma" class="btn-whatsapp-grande" target="_blank" rel="noopener noreferrer">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" width="26" height="26">
+                    <svg width="26" height="26" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#FFF" d="M16 0C7.163 0 0 7.163 0 16c0 2.822.737 5.472 2.026 7.77L0 32l8.44-2.215A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.13 19.6c-.39-.196-2.31-1.14-2.667-1.27-.357-.13-.617-.196-.877.196-.26.39-1.007 1.27-1.235 1.53-.228.26-.455.293-.845.098-.39-.196-1.647-.607-3.137-1.936-1.16-1.034-1.943-2.31-2.17-2.7-.228-.39-.024-.6.17-.795.175-.174.39-.455.585-.683.196-.228.26-.39.39-.65.13-.26.065-.488-.033-.683-.098-.196-.877-2.115-1.202-2.896-.316-.76-.638-.657-.877-.67l-.747-.013c-.26 0-.683.098-1.04.488-.357.39-1.365 1.334-1.365 3.253s1.398 3.773 1.593 4.033c.196.26 2.75 4.2 6.663 5.888.93.402 1.657.642 2.223.822.934.297 1.784.255 2.456.155.75-.112 2.31-.944 2.636-1.855.325-.91.325-1.69.228-1.855-.098-.163-.357-.26-.747-.455z"/></svg>
                     CONSULTAR DISPONIBILIDAD
                 </a>
             </div>
@@ -780,8 +835,9 @@
     <!-- ********************************** FOOTER ********************************** -->
     <a href="https://wa.me/5492323301372?text=Hola!%20Me%20gustaría%20recibir%20más%20información%20sobre%20las%20cabañas%20Costa%20Calma"
        class="whatsapp-float"
+       aria-label="Escribinos por WhatsApp"
        target="_blank" rel="noopener noreferrer">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#FFF" d="M16 0C7.163 0 0 7.163 0 16c0 2.822.737 5.472 2.026 7.77L0 32l8.44-2.215A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.13 19.6c-.39-.196-2.31-1.14-2.667-1.27-.357-.13-.617-.196-.877.196-.26.39-1.007 1.27-1.235 1.53-.228.26-.455.293-.845.098-.39-.196-1.647-.607-3.137-1.936-1.16-1.034-1.943-2.31-2.17-2.7-.228-.39-.024-.6.17-.795.175-.174.39-.455.585-.683.196-.228.26-.39.39-.65.13-.26.065-.488-.033-.683-.098-.196-.877-2.115-1.202-2.896-.316-.76-.638-.657-.877-.67l-.747-.013c-.26 0-.683.098-1.04.488-.357.39-1.365 1.334-1.365 3.253s1.398 3.773 1.593 4.033c.196.26 2.75 4.2 6.663 5.888.93.402 1.657.642 2.223.822.934.297 1.784.255 2.456.155.75-.112 2.31-.944 2.636-1.855.325-.91.325-1.69.228-1.855-.098-.163-.357-.26-.747-.455z"/></svg>
     </a>
 
     <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">

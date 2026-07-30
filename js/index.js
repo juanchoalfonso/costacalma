@@ -1,32 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Efecto Glassmorphism al scrollear la Navbar
-    const navbar = document.getElementById('navbar');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
 
-    // 2. Menú Off-Canvas para Celulares
-    const mobileMenuBtn = document.getElementById('mobile-menu');
-    const closeMenuBtn = document.getElementById('close-menu');
+    // ============================================================
+    // 1. Scroll: navbar glassmorphism + botón "arriba" + cerrar menú
+    //    (un solo listener passive para todo lo que depende del scroll)
+    // ============================================================
+    const navbar = document.getElementById('navbar');
     const navLinks = document.getElementById('nav-links');
     const navOverlay = document.getElementById('nav-overlay');
-    const navItems = document.querySelectorAll('.nav-item'); 
+    const scrollTopBtn = document.getElementById('scroll-top');
 
     function toggleMenu() {
         navLinks.classList.toggle('active');
         navOverlay.classList.toggle('active');
     }
 
+    window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+
+        navbar.classList.toggle('scrolled', y > 50);
+
+        if (scrollTopBtn) {
+            scrollTopBtn.classList.toggle('visible', y > 400);
+        }
+
+        // Cerrar el menú lateral si el usuario scrollea con el menú abierto
+        if (navLinks.classList.contains('active')) {
+            toggleMenu();
+        }
+    }, { passive: true });
+
+    // ============================================================
+    // 2. Menú off-canvas (mobile)
+    // ============================================================
+    const mobileMenuBtn = document.getElementById('mobile-menu');
+    const closeMenuBtn = document.getElementById('close-menu');
+    const navItems = document.querySelectorAll('.nav-item');
+
     mobileMenuBtn.addEventListener('click', toggleMenu);
     closeMenuBtn.addEventListener('click', toggleMenu);
     navOverlay.addEventListener('click', toggleMenu);
 
-    // Cerrar el menú si hacen clic en un link
+    // Cerrar el menú al hacer clic en un link
     navItems.forEach(item => {
         item.addEventListener('click', () => {
             if (navLinks.classList.contains('active')) {
@@ -35,60 +49,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Cerrar el menú al scrollear
-    window.addEventListener('scroll', () => {
-        if (navLinks.classList.contains('active')) {
-            toggleMenu();
-        }
-    }, { passive: true });
-});
+    // ============================================================
+    // 3. Botón "Volver arriba"
+    // ============================================================
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 
-// 3. Botón Scroll to Top
-    const scrollTopBtn = document.getElementById('scroll-top');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
-    });
-
-    scrollTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-// 4. Scroll Reveal (Animaciones al bajar)
-    const reveals = document.querySelectorAll('.reveal');
-
+    // ============================================================
+    // 4. Scroll reveal (animaciones al entrar en viewport)
+    // ============================================================
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
+                observer.unobserve(entry.target); // una sola vez
             }
         });
-    }, {
-        root: null,
-        threshold: 0.15
-    });
+    }, { threshold: 0.15 });
 
-    reveals.forEach(reveal => {
-        revealObserver.observe(reveal);
-    });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// 4. Lightbox Galería
+    // ============================================================
+    // 5. Lightbox de la galería
+    // ============================================================
     const galeriaItems = document.querySelectorAll('.galeria-item');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.getElementById('lightbox-close');
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
-    let currentIndex = 0;
     const images = Array.from(galeriaItems).map(item => item.querySelector('img'));
+    let currentIndex = 0;
 
     function openLightbox(index) {
         currentIndex = index;
-        lightboxImg.src = images[currentIndex].src;
+        const img = images[currentIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || '';
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -105,15 +105,29 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.style.opacity = '0';
         setTimeout(() => {
             lightboxImg.src = images[currentIndex].src;
+            lightboxImg.alt = images[currentIndex].alt || '';
             lightboxImg.style.opacity = '1';
         }, 150);
     }
 
-    galeriaItems.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
+    galeriaItems.forEach((item, i) => {
+        item.addEventListener('click', () => openLightbox(i));
+        // Accesible por teclado
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openLightbox(i);
+            }
+        });
+    });
+
     lightboxClose.addEventListener('click', closeLightbox);
     lightboxPrev.addEventListener('click', () => navigate(-1));
     lightboxNext.addEventListener('click', () => navigate(1));
     lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
     document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('active')) return;
         if (e.key === 'Escape') closeLightbox();
@@ -121,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowRight') navigate(1);
     });
 
-    // Touch swipe
+    // Swipe táctil
     let touchStartX = 0;
     lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
     lightbox.addEventListener('touchend', (e) => {
@@ -129,30 +143,28 @@ document.addEventListener('DOMContentLoaded', () => {
         if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
     }, { passive: true });
 
-// 5. Sección activa en navegación
+    // ============================================================
+    // 6. Resaltado de la sección activa en el nav
+    // ============================================================
     const sections = document.querySelectorAll('section[id]');
-    const navItems = document.querySelectorAll('.nav-links a.nav-item[href^="#"]');
+    const navHashLinks = document.querySelectorAll('.nav-links a.nav-item[href^="#"]');
 
     const activeSectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const id = entry.target.getAttribute('id');
-                navItems.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
+                navHashLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
                 });
             }
         });
-    }, {
-        root: null,
-        rootMargin: '-40% 0px -55% 0px'
-    });
+    }, { rootMargin: '-40% 0px -55% 0px' });
 
     sections.forEach(section => activeSectionObserver.observe(section));
 
-// 6. Galería "Ver más"
+    // ============================================================
+    // 7. Galería "Ver más / Ver menos"
+    // ============================================================
     const verMasBtn = document.getElementById('galeria-ver-mas');
     const galeriaExtras = document.querySelectorAll('.galeria-extra');
     let galeriaExpanded = false;
@@ -165,7 +177,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-// 8. FAQ Accordion
+    // ============================================================
+    // 8. Acordeón de FAQs
+    // ============================================================
     document.querySelectorAll('.faq-pregunta').forEach(btn => {
         btn.addEventListener('click', () => {
             const item = btn.closest('.faq-item');
@@ -181,11 +195,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-// 7. Preloader
+    // ============================================================
+    // 9. Preloader (se oculta apenas termina de cargar la página)
+    // ============================================================
     const preloader = document.getElementById('preloader');
-
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-        }, 1500);
-    });
+    if (preloader) {
+        window.addEventListener('load', () => {
+            setTimeout(() => preloader.classList.add('hidden'), 400);
+        });
+    }
+});
